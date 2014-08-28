@@ -1,0 +1,18 @@
+Exercício
+
+* Escrever classes TemperaturaFahrenheit e TemperaturaCelsius que 
+  permitam conversão de tipos entre elas.
+
+* Usar convenção Smalltalk para escrever métodos no papel:
+    - NomeDaClasse>>nomeDeMétodoSemParâmetros
+    - NomeDaClasse>>arg1:arg2:arg3:arg4
+
+
+                            Temperatura
+                                 |
+                    .------------|------------.
+        TemperaturaFahrenheit    |    TemperaturaKelvin
+                         TemperaturaCelsius
+    
+    x := TemperaturaCelsius comValor: 30
+    y := x emKelvin

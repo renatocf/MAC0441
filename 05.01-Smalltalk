@@ -1,0 +1,118 @@
+Coleções
+==========
+
+* Tipo de coleções
+    - Collection: classe abstrata básica que é mãe de todas as coleções.
+      - A rigor, em Smalltalk, não existem classes abstratas, mas este
+        conceito é obtido de forma simples e eficiente através do 
+        método 'subclassResponsability', que é implementado pela 
+        classe 'Object' (chamando 'self subclassResponsability').
+    - Bag: é um saco de objetos onde não interessa a sua ordem
+      e pode haver repetição de elementos.
+    - Set: igual a bag, mas não há repetição de elementos (qualquer
+      semelhança com o conceito matemático de conjuntos não é mera
+      coincidência).
+    - SequenceableCollection: classe abstrata para representar coleções
+      que podem ser indexadas.
+    - ArrayedCollection: classe abstrata para represntar coleções
+      sequenciáveis de tamanho fixo.
+    - Principais tipos concretos de ArrayedCollection: ByteArray (vetor
+      de SmallIntegers), String (vetor de caracteres), Text (vetor de
+      caracteres com formatação), Array (vetor de Objects), RunArray
+      (vetor de Objects com representação específica para vetores com
+      muita repetição contígua - útil para Imagens), SoundBuffer (com
+      vários métodos específicos para manipulação de áudio).
+    - OrderedCollection: elementos são guardados na ordem em que foram
+      adicionados à coleção. Podem ser acessados por um índice. Seu
+      comprimento pode ser variável.
+    - SortedCollection: similar a OrderedCollection, mas seus elementos
+      são guardados ordenados segundo algum algoritmo de ordenação.
+    - Interval: representa números em um intervalo. Pode ser instanciado
+      com "5 to: 10" (intervalo de 5 a 10).
+    - Dictionary: é um conjuto (set)de associações (associations). Uma
+      associação é um par de objetos dotipo <chave,valor> (associação
+      pode ser criada assim: 1->5 ou #red->#azul)
+
+* Protocolos Comuns a todas as sublasses de Collection
+    - adding
+        - add: newObject
+        - addAll: aCollection
+    - removing
+        - remove: oldObject
+        - remove: oldObject ifAbsent: anExceptionBlock
+        - removeAll: aCollection
+    - testing
+        - includes: anbject
+        - isEmpty
+        - ocurrenceOf: anObject
+    - enumerating
+        - do: aBlock
+        - select: aBlock
+        - reject: aBlock
+        - collect: aBlok
+        - detect: aBlock
+        - detect: aBlock ifNone: exceptionBlock
+        - inject: thisValue into: BinaryBlock
+    - instance creation
+        - with: anObject
+        - with: anObject with: anObject
+        - with: anObject with: anObject with: anObject
+        - with: anObject with: anObject with: anObject with: anObject
+    - conversion
+        - asSet
+        - asBag
+        - asOrderedCollection
+        - asSortedCollection
+        - asSortedCollection: aBlock
+
+    - Exemplos:
+        "$letra representa um caracter único"
+        s := Set with: $s with: $e with: $t
+        
+        "Quantos 'a' maiúsculos ou minúsculos há no texto"
+        cont := 0
+        myText do: [ :letra | letra asLowerCase == $a 
+                              ifTrue: [ cont := cont + 1 ]]
+        
+        "Quantos 'a' maiúsculos ou minúsculos há no texto"
+        (myText select: [ :letra | letras asLowerCase == $a ]) size
+        
+        "Quantas letras diferentes de 'a' há no texto"
+        (myText reject: [ :letra | letras asLowerCase == $a ]) size
+        
+        "Cria uma variável para armazenar valores 'acumulados' entre
+        cada passo do percorrimento do vetor. No caso abaixo, a variável
+        usada para o inject é :cont"
+        meuTexto inject: 0
+            into: [:cont :proxElem | 
+                    cont + (proxElem asLowerCase == $a
+                    ifTrue: [1] ifFalse: [0])
+                  ]
+        
+        "Vai recebendo números conforme cada passo"
+        aCollection inject: 0 into: [ :subTotal :next | subTotal + next ]
+    
+* Protocolos específicos de aluns subtipos de Collection
+    - SequenceableCollection
+        - accessing
+        - copying
+    
+    - OrderedCollection
+        - after
+        - before
+        - adding
+        - removing
+    
+    - SortedCollection
+        - instance creation sortBlock: aBlock
+        - accessing
+            - para acessar e modificar o bloco de ordenação
+        - Se não se determina nenhum bloco de ordenação padrão:
+            [ :a :b | a <= b ]
+    
+    - Ex:
+            filhos := SortedCollection new
+            filhos add: #João   "Símbolos, que funcionam como objetos "
+            filhos add: #Maria  "que só são criados uma vez. Funciona "
+            filhos add: #Luís   "para strings e caracteres."
+            filhos add: #Pedro

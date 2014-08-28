@@ -1,0 +1,68 @@
+Mais smalltalk
+================
+
+* Blocos
+    - Blocos funcionam como lambdas de linguagens funcionais
+    - Os blocos seguem a notação:
+    
+        [ comando 1.
+          comando 2.
+          ...        ]
+    
+    - Um bloco ARMAZENA um comando, para ser executado posteriormente.
+    - Para executar um bloco, usamos 'value'
+        
+        [ number := 1 + 1 ] value 
+    
+      Imprimirá 2.
+    
+    - Blocos também podem ter parâmetros, como:
+        - Ex: 
+            block := [ :array | total := total + array size ]
+            block value: 2
+        - Ex:
+            delta := [ :a :b :c | b * b - 4 * a * c ]
+            delta value: 4 value: 1 value: 1
+            "Pode-se usar até 4 value seguidos"
+
+* Repetição
+    - Por ser uma linguagem minimalista, Smalltalk não possui comandos
+      de repetição, laços, etc.
+    - Mas os números possuem métodos que fazem exatamente isso.
+    - Exemplo:
+        4 timesRepeat: [ quantia := quantia + 10 ]
+
+* Condicionais
+    - Por ser uma linguagem minimalista, Smalltalk não possui comandos
+      como if, while, for, etc.
+    - Mas os tipos booleanos possuem mensagens que assumem este papel.
+    - As biblioteca de classe possui as classes Boolean, True e False.
+    - As classes True e False só têm uma instância cada; são chamadas de
+      'true' e 'false'.
+    - Exemplos:
+        (x < 0)
+            ifTrue: [ Dialog warn: 'Cuidado, o número é negativo!' ]
+        (número \\ 2) = 0 "resto da divisão por 2 é 0?"
+            ifTrue:  [ paridade := 0 ]
+            ifFalse: [ paridade := 1 ]
+
+* Repetição Condicional
+    - Ex:
+        - index := 1.
+          [index <= list size]
+              whileTrue: [list at: index put: 0.
+                          index := index + 1
+        - [list size >= 10] whileFalse: [list getMoreContent]
+
+* Repetições em intervalo ("for")
+    - Ex:
+        x := 0
+        1 to: 10 do: [ :t | x := x + 1 ]
+
+* Arrays
+    - Arrays são utilizados para muitascoisas em Smalltalk. Por exemplo,
+      para passarmos mais do que 4 argumentos para um bloco:
+    - Ex:
+        block := [ :a :b :c :d :e | a + b + c + d ]
+        block valueWithARguments: #(1 2 3 4 5)
+        block valueWithPossibleArgs: #(1 2 3 4 5 6 7 8 9 10)

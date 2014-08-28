@@ -1,0 +1,19 @@
+Requisitos para POO
+=====================
+
+* O que faz de uma linguagem orientada a objetos?
+    - 1987: Peter Wegner (OOPSLA)
+        1. Ser baseada em objetos
+        2. Ser baseada em classes
+        3. Herança
+    - Outras ideias
+        - Coleta automática de lixo (excluiria C++)
+        - Herança múltipla (excluiria Java, Smalltalk)
+        - Agregação (considerada um detalhe)
+        - Enlace dinâmico (não precisar definir, em tempo de compilação,
+          quem são os objetos referenciados por outros - essas
+          definições podem ser feitas em runtime. Excluiria C++)
+    
+    - A única exceçãoparaesse tipo de definição - e que é sim orientada
+      a objetos, é a linguagem self, que não tem classes, mas apenas
+      objetos.

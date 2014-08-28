@@ -1,0 +1,33 @@
+GOD (Grande Organizador de Dados)
+===================================
+
+* Funções hierárquicas
+    - Cliente (Prof. Fábio)
+        - Auxiliar técnico
+        - Analista de requisitos
+    - Desenvolvimento
+        - Arquiteto (arquitetura do sistema) - Fred Brooks
+        - Data Base Administrator
+        - Analista de testes
+        - Designer visual
+        - Gerente de desenvolvimento (pessoas)
+        - Gerente de integração (juntar as partes do sistema)
+        - Grupos de 3 com líder
+
+* Sistema de entrada/saída
+    
+                       .---------------.
+         E-mail -----> |               | -----> E-mail
+       Facebook -----> |               | -----> Facebook
+        Twitter -----> |               | -----> Twitter
+          Texto -----> |               | -----> Texto (txt,doc,odf,pdf)
+       Planilha -----> |               | -----> Planilha (ods,xls,csv)
+        Web/RSS -----> |               | -----> Gráficos
+                       '---------------'
+    
+* Proposta de aplicações
+    1. Análise de sentimento para consumo
+    2. Análise de redes sociais p/ sentimento político
+    3. Agregador de notícias
+    4. Rede sociais + Bolsa
+    5. Buscador de material didático

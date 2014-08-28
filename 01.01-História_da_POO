@@ -1,0 +1,130 @@
+História da POO
+=================
+
+ 375 a.C - Platão (República)
+           Cria a teoria de que existem classes abstratas de coisas e
+           suas concretizações (precursor da ideia de classes e 
+           instâncias de classe).
+ 330 a.C - Aristóteles
+           Reune animais em grupos via similaridades (precursor da 
+           ideia de herança).
+1753 d.C - Lineu
+           Criou uma taxonomia das plantas (precursor das
+           hierarquia de classes)
+1967 d.C - Ole-Johan Dal/Kristen Nygard
+           Trabalhavam no laboratório SIMULA com a linguagem ALGOL 
+           fazendo simulações de gases e moléculas. Eles criavam
+           representações de moléculas sozinhas, mas havia muito
+           código repetido, que poderia ser abstraído e gerado
+           automaticamente pelo computador. Houve duas versões:
+            SIMULA I  (1962 → 1965) : criou o conceito de classe
+            SIMULA 67 (1967)        : criou a herança
+    
+1970 d.C - XEROX PARC (Palo Alto Research Center)
+           Projeto Dynabook (1970-1980) - na época em que computadores 
+           ocupavam salas de espaço e cartões perfurados, a Xerox queria 
+           um computador pequeno, com entrada de dados via teclado, 
+           saída via monitor e tão simples de usar que até crianças
+           pudessem usá-lo.
+           
+           Daí, saíram várias ideias:
+           - Monitores coloridos
+           - Interfaces gráficas (com Bitmaps)
+           - Sistema de Janelas
+           - Mouse (para interação)
+           - Light Pen (caneta para desenhar no computador)
+           - Ethernet (para conectar computadores)
+           - Modem (transmissão de dados da Ethernet usando sons 
+             e conversores analógicos-digitais)
+           - Placa de Som
+           
+           Eles precisavam de bons softwares para o Dynabook, e uma
+           boa linguagem para seus programas. Eles contrataram um dos
+           melhores pesquisadores da área na época - Alan Kay, da 
+           Universidade de Utah - e o contrataram (1971). Antes de
+           escreverem, pensaram nas aplicações que haveria lá:
+           - Editor de texto
+           - Editor de desenhos (Paint brush)
+           - Editor de objetos tridimensionais
+           - Editor de músicas
+           - Jogos 
+           
+           Como eles queriam que programar fosse tão fácil quando
+           "bater um papo", eles criaram uma linguagem inspirada
+           nesse conceito: Smalltalk (Small Talk == "Bater papo furado")
+
+1972 d.C - Smalltalk
+           O Smalltalk foi criado por Alan Kay com várias inspirações:
+           - LOGO: Uma linguagem educacional para criar desenhos ao
+             usar comandos parecidos com a linguagem natural.
+           - LISP: LIst Symbolic Processing, voltada para o uso de 
+             símbolos e sintaxe simples.
+           - SIMULA67: Com conceitos de orientação a objetos
+           
+           Diferentemente de SIMULA, porém, os desenvolvedores de
+           Smalltalk queriam uma proposta diferente, bem mais dinâmica,
+           em camadas:
+            
+                 .------------------------.    | 
+                 | Código Fonte Smalltalk |    | O bytecode tinha uma
+                 '------------------------'    | vantagem: servia para
+                             \/                | cada usuário não ter 
+                        .----------.           | de fazer recompilações
+                        | Bytecode |           | todas as vezes que 
+                        '----------'           | havia mudanças de 
+                             \/                | hardwares. O bytecode
+               .---------------------------.   | tinha a vantagem de
+               | Smalltalk Virtual Machine |   | ser interpretado mais
+               '---------------------------'   | rapidamente que a 
+                             \/                | linguagem de alto 
+                        .----------.           | nível.
+                        | Hardware |           | 
+                        '----------'           | 
+
+           
+           Em 1970, encerrou-se o projeto Dynabook, porque não houve 
+           sucesso comercial. Houve várias versões do Smalltalk, a 
+           partir daí:
+           - Smalltalk 76: bytecode, VM, herança
+           - Smalltalk 80: considerado a com melhores conceitos de POO
+           - Smalltalk V:  versão da IBM do Smalltalk V
+           
+           O Smalltalk, porém, não emplacou: o modelo de negócios 
+           fazia com que se vendesse o Bytecode e a SVM - cada um
+           pelo preço de 10.000 dólares. Porém, além de ser muito
+           caro para ter o sistema de desenvolvimento, o bytecode
+           vendido por empresas exigia que clientes comprassem a
+           SVM. Só empresas e governos compravam, e ela não
+           teve grande sucesso.
+           
+1995 d.C - A Sun Microsystem cria uma linguagem parecida com Smalltalk,
+           para a Internet: Java. Eles usaram a mesma arquitetura, mas 
+           deixaram todos os componentes gratuítos e dariam consultorias
+           e treinamentos. Faliram, porém, sendo comprados pela Oracle.
+
+Diagrama de evolução de linguagens
+====================================
+
+1960                      FORTRAN
+      LISP     SIMULA62      \ 
+      |\          ↓         ALGOL
+      | \      SIMULA67        \
+      |  \        /    \      PASCAL
+1970 -|---\------/------\-----/-|-\-------
+      |    \    /      C \   /  | Modula
+      | Smalltalk-72   |  ADA   |
+      |      ↓         |  Object Pascal
+      | Smalltalk-80   |
+1980 -|----|-\---------/\-----------------
+      |    |  \       /  \
+      |    |   \     /    \
+      |    |    \  C++  Objective-C
+      |    |     | |
+      |    | /
+    CLOS  Self
+
+1970
+
+1980
+
+1990
