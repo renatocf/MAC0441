@@ -3,10 +3,9 @@ Projeto
 
 * Tipos de aplicação
     1) Sistema Web para agregar informações de sites
-        - ISI - ThomsonReuters
         - WebOfScience
-        - GS
-        - Qualis
+        - Google Scholar
+        - WebQualis
         - Microsoft Academics
     2) Usar Google Maps para reunir informações sobre ciclovias, 
        qualidade do ar, trânsito local, previsão do tempo, entre 

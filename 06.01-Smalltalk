@@ -1,0 +1,56 @@
+Streams Smalltalk
+===================
+
+* Um Stream é um mecanismo que permite a leitura e/ou escrta de dados de
+  forma sequenciam em uma Coleção, String ou Arquivo.
+* Podemos percorrer todos os elementos de uma OrderedCollection usandos
+  first e after (desde que a coleção não tenha elementos repetidos), mas
+  para isso precisamos manter uma referência para o elemento corrente da
+  coleção.
+* Um Stream é uma forma de encapsular esta referência de forma que
+  possamos percorrer todos os elementos de uma coleção (ou outros tipos
+  como String e Arquivos) de uma forma padronizada.
+* É a forma do Squeak de implementar ITERADORES.
+
+* Streams associados a coleções
+    - O tipo PositionableStream tem como subclasses ReadStream,
+      WriteStream e ReadWriteStream.
+    - Acessamos os vários elementos como o método 'next'.
+    - Colocamos novos elementos com o método 'nextPut'.
+    - Colocamos uma coleção de elementos com 'nextPutAll:'. A coleção
+      pode ser, por exemplo, um String.
+    - Há duas formas principais de se criar um Stream sobre uma coleção.
+        1. Enviando mensagens para as subclasses de Stream
+            vetor := OrderedCollection new.
+            vetor addAll: #(1 2 3 4 5).
+            stream := WriteStream with: vector. "cria um stream e
+            posiciona o ponteiro para o fim da coleção"
+            stream position: 4. "move o ponteiro para a posição 4"
+            stream nextPut: 6.
+            stream concents. "devolverá o Array #(1 2 3 4 6)"
+
+        2. Enviando mensagens para as coleções (definidas na classe
+        'SequenceableCollection').
+
+    - Métodos importantes:
+        - Leitura: next, next:, upToEnd, through:, throughAll:,
+          contents.
+        - Escrita: nextPut, nextPutAll,princt, cr, tab, tab:
+
+* Manipulação de arquivos
+    - A manipulação de arquivos para entrada e saída de dados é feita
+      através de objetos do tipo 'FileStream', que é uma subclasse de
+      'ReadWriteStream'.
+    - Ex:
+        "Escrita"
+        myFile := FileStream fileNamed: 'arq.txt'
+        myFile nextPutAll: 'Hello, World!'; cr;
+        tab;
+            nextPutAll: '- Hello!'.
+        myFile.close.
+        
+        "Leitura"
+        reading := FileStream fileNamed: 'arq.txt'.
+        string := reading contents.
+        Transcript show: string.
+        reaing close.
