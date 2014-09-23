@@ -1,0 +1,8 @@
+
+* Todas as classes usarão notação 'NomesConcatenados'
+* Todo grupo deve ter um nome (ex: Social Network IO)
+* Todo grupo deve ter uma sigla de 3 a 4 letras (Ex: SNIO)
+* Toda classe deve começar como GODNome-do-grupo (Ex: GodSNIO)
+
+* Até 18/09: nome da sigla + líder do grupo
+* Até 28/09: interfaces para uso dos componentes

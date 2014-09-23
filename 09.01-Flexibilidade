@@ -1,0 +1,105 @@
+Aumentando a flexibilidade
+============================
+
+* Na vida real, sistemas de software tendem a sobreviver vários anos
+* Mesmo sistemas desenvolvidos paratervida curta, acabam vivendo mais
+  tempo que o esperado.
+* No entanto,
+    - os requisitos tendem a variar ao longo do sistema;
+    - os sistemas são entendidos de diferentes formas para acrescentar
+      novas funcionalidades não antecipadas e
+    - partes de um sistema são utilizadas em outros sistemas
+      (reutilização).
+
+* Masé preciso cuidado. Lição de Programação eXtrema:
+    - Não antecipe necessidades, pois elas podem não aparecer.
+    - Não incorpore flexibilidade desnecessária.
+
+* Possível abordagem para enfrentar essa dicotomia:
+    - A arquitetura do sistema deve sempre ser o mais simples possível.
+    - 'Less is more', Frase do famoso arquiteto Mies van der Rohe.
+
+* Outra forma importante de incorporar flexibilidade sem aumentar a
+  complexidade:
+    - maximizar a coesão (estrutura do módulo);
+    - minimizar o acoplamento (relacionamento entre módulos).
+
+Maximizando a coesão
+----------------------
+
+* Coesão é uma medida da diversidade dos "tópicos" abordados por uma
+  entidade.
+* Quanto menor a diversidade de assuntos abordados por uma entidade,
+  maior a sua coesão.
+* Uma entidade bem focada em um determinado aspecto do sistema, é uma
+  entidade bem coesa.
+* Sistemas onde os aspectos estão difusos são pouco flexíveis e
+  dificultam extensões, modificações e reutilizações.
+
+* Cada classe deve ser o mais coesa quanto possível.
+* Cada classe deve represetar apenas uma abstração.
+* Classes não coesas podem trazer, pelo menos, 3 problemas:
+    1. a classe é mais difícil de entender;
+    2. está se supondo que as duas (ou mais) abstrações representadas
+       pela classe tem uma relação de 1 para 1 entre si.
+    3. pode ser necessário especializar a classe e várias dimensões
+       baseadas nas várias abstrações.
+
+* Exemplos: 
+    - Uma classe para conta bancária que inclui informações sobre o
+      correntista (nome, endereço, etc);
+    - Problema (2 acima): não permitirá contas conjuntas, se um
+      correntista tem várias contas, os seus dados serão duplicados em
+      cada conta o que gerará problemas de atualização e consistência.
+    - Problema (3): especialização na dimensã do tipo de conta
+      (corrente, poupança) e no tipo de correntista (pessoa física ou
+      jurídica).
+
+* Os designs mais coesos eliminam a redundância.
+* Refunfâcia desperidça espaço e dificulta a utilização de dados.
+
+Acoplamento
+-------------
+ 
+* Acoplamento é:
+    - O quão "amarrado" uma parte do sistema é as outras partes.
+    - O quão dependente de uma parte do sistema é das estruturas
+      internas das outras partes di sistema.
+    - Uma medida do quando uma classe conhece o mundo à sua volta.
+
+* Se uma classe A conhece (e depende) da interface de uma lasse B, e a
+  interface da classe B é modificada, a classe A terá que ser modificada
+  também.
+
+* Minimizando o acoplamento entre as classes (e objetos) de um sistema,
+  nós facilitamos as modificações no sistema.
+
+* Há várias formas de acoplamento, entre elas:
+    1. Acoplamento de Identidade
+        - Se um objeto guarda uma referência para outro, ele conhecea
+          identidade do outro e, portanto, está acoplado a ele.
+        - Reduz-se o acoplamento de identidade eliminando associações no
+          diagrama de classes e implementando associaões de forma
+          unidirecional.
+
+    2. Acoplamento de Representação
+        - ocorre quando um objeto referencia outro, i.e. acessa o outro.
+        - quanto mais específio o acesso (e.g., mexer nas variável
+          píblicas de outro objeto), aumenta o acoplamento.
+        - usando um método "acessor" diminui um pouco o acoplamento
+          (pois o método esconde a implementação do dado).
+
+    3. Acoplamento de Subclasses
+        - quando um objeto acessa uma subclasse usando a interface da
+          subclasse ao invés de usar a interface da superclasse.
+        - um cliente deve sempre usar uma referência para o tipo mais
+          geral possível.
+        - exemplo: em Jaca, usar InputStream ao invés de
+          FileInputStream.
+    
+    4. Acoplamento de Herança
+        - Uma subclasse é acoplada à sua superclasse através de
+          acoplamento de herança.
+        - É provavelmente o tipo de acoplamento mais forte.
+        - Se manifesta fortemente em tempo de compilaçã, mas também pode
+          existir em tempo de comlição.

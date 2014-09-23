@@ -1,0 +1,19 @@
+28/09
+=====
+    - Interfaces dos componentes (classes a serem usadas pelos seus
+      clientes).
+    - Testes com SUnit (Luiz Gustavo no STOA).
+    
+    - grupo web: testes Selenium.
+    
+    - Aplicações: exemplo qualquer de código do nucleo da aplicação,
+      amarrado ("hard-coded") para um caso específico (e quais seriam
+      as interfaces a serem usadas).
+
+05/10
+=====
+    - Todas as interfaces revisadas.
+    - Código-exemplo das aplicações revisado.
+    - Diagrama de classes UML do seu componente para o João
+      (joao@joaodasilva.com.br) - obrigatoriamente usando o Astah
+      (mandar tanto o .asta quanto o .png)

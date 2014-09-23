@@ -1,0 +1,133 @@
+UML
+====
+
+* Diagramas Estruturais
+    - Usados para visualizar, especificar, construir e documentar
+      aspectos estáticos de um sistema
+        - Diagrama de classes
+        - Diagrama de pacotes
+        - Diagrama de objetos
+        - Diagrama de componentes
+        - Diagrama de implantação
+
+* Diagrama de classes
+    - Modela o vocabulário do sistema, em  termos de quais abstrações
+      parte do sistema e quais caem fora de seus domínios.
+    - Modelar as colaborações/interações (sociedades de elementos que
+      trabalham em conjunto oferecendo algum comportamento cooperativo).
+    - Modelagem lófica dos dados manipulados pelo sistema (servindo de
+      basepara a definição formal dos dados do sistema).
+    
+    - Notação para classe
+    
+        .-----------.     .------.      .-------------------.
+        | Nome      |     | Nome |      | Nome              | 
+        |===========|     '------'      |===================|
+        | Atributos |                   | Atributos         |
+        |-----------|                   |-------------------|
+        | Operações |                   | Operações         |
+        '-----------'                   |-------------------|
+                                        | Responsabilidades |
+                                        '-------------------'
+        
+        itálico → abstrata
+    
+    - Acesso de atributos: + (public), - (private), # (protected)
+    
+    - Tipos de generalização
+    
+                    Associação      Generalização
+                    -------------   -----------|>
+                    Dependência     Realização
+                    - - - - - - >   - - - - - -|>
+                    Composição      Agregação
+                    ◆------------   ◇------------
+    
+        - Associação:    relacionamento qualquer entre duas classes
+        - Generalização: herança
+        - Agregação:     relacionamento de 'faz parte de'
+        - Composição:    agregação em que a classe composta faz parte
+                         da classe agregada.
+        - Dependência:   precisa daquela classe
+        - Realização:    Implementa uma interface
+    
+    - Interface
+                                    .-------------------.
+                   ()               |   <<interface>>   |
+                Interface           |      Classe       | 
+                                    |===================|
+                                    | Atributos         |
+                                    |-------------------|
+                                    | Operações         |
+                                    '-------------------'
+    
+    - Notas
+                            .----------.,
+                            |          |_\
+                            |   Nota     |
+                            |____________|
+
+* Diagrama de pacotes
+    - Feitos para sistemas grandes
+    - Mais relacionado à como as classes estão organizadas
+         ________                        ________
+        |        |                      |        |
+        | Pacote |                      | Pacote |
+        |________|________________      |________|________________
+        |   ______                |     |   ______                |
+        |  |______|____________   |     |  |______|____________   |
+        |  |                   |  |     |  |                   |  |
+        |  |     Subpacote     |--:-----:->|     Subpacote     |  |
+        |  |___________________|  |  \  |  |___________________|  |
+        |   ______                |   \ '-------------------------'
+        |  |______|____________   |    \
+        |  |                   |  |     .-------------.,
+        |  |     Subpacote     |  |     | Dependência |_\
+        |  |___________________|  |     | entre pacotes |
+        '-------------------------'     |_______________|
+
+* Diagrama de objetos
+    - "Foto" de um sistema dinâmico em atividade, com os objetos
+      vivos e seus relacionamentos
+    
+                .----------.        .----------.
+                | Objeto 1 |------->| Objeto 2 |
+                '----------'        '----------'
+                                         △
+                                         | 
+                                    .----------.
+                                    | Objeto 3 |
+                                    '----------'
+
+* Diagrama de Componentes
+    - Componente: uma parte de um sistema que pode ser substituída e que
+      oferece uma implementação de um conjunto de interfaces.
+    
+                |¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨|
+            .-------.           |           .----------.
+            |       |           |           | ======== |
+            '-------'           |           | ======== |
+                |               |           | ======== |
+            .-------.           |           | ======== |
+            |       |           |           | ======== |
+            '-------'           |           '----------'
+                |_______________|          Componente com
+                                            código fonte
+             Componente com código 
+                  executável
+
+* Diagrama de implantação
+       _______________
+      /______________/|
+      |   : client   ||
+      |   deploys    ||
+      | netscape.exe |/   
+      ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨         _______________      _______________
+           ||                 /______________/|    /______________/|
+           || <<HTTP>>        | a: appServer ||====| : RAID farm  ||
+       ____||_________        | deploys      ||    |              ||
+      /______________/|=======| JBoss        |/    |              |/
+      |  w: console  ||       ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨     ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨
+      |   deploys    ||
+      |    apache    |/
+      ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨

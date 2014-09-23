@@ -1,0 +1,75 @@
+* Classes abstratas
+    - Em Smalltalk, nãoexiste o conceito explítico/formal de classe 
+      abstrata.
+    - Métodos ovstratos são simulados coma implementação '^self
+      subclassResponsability'.
+
+* Namespaces vs Categories vs Packages
+    - Namespaces são uma forma de organizar os nomes dascasses e
+      variáveis em um ambiente; evitam conflitos por repetição de nomes.
+    - Categories são apenas uma forma de desenvolvedores agruparem suas
+      classes para fins de organização do código, as categorias em geral
+      indicam qual o "tipo conceitual" de classe com a qual estamos
+      lidando (não é usado pelo Smalltalk em si).
+    - Packages são uma forma de organizar as classes para distribuição
+      na Internet, para armazenamento em disco, etc.
+    - Um pacote pode conter classes de vários namespaces e de várias
+      categorias.
+
+* Uso de caracteres especiais para criação de objetos de tipos
+  específicos.
+
+* Igualdade vs Equivalência
+    - =/~= significa 'equivalente' (mesmo conteúdo)
+    - ==/~~ significa 'igualdade' (mesmo objeto)
+
+* Ponteiros (apontadores) vs referências
+    - Uma referência é uma variável que guarda o endereço de memória
+      onde um objeto reside.
+    - O que podemos fazer com uma REFERÊNCIA:
+        1. Elas podem ser derreferenciadas para se contactar o objeto
+           referenciado por elas.
+        2. Podemos atribuir a ela um novo valor no momento dacriação de
+           um novo objeto ou fazendo com que umareferência seja 
+           associada ao mesmo objeto de outra referência.
+            - Em linguagens com checagem estática de tipos, como Jaca, o
+              compiador verifica no momento da atribuiçõase não está
+              ocorrendo uma violação de tipos.
+        3. Podemos comparar referências para saner se elas apontam para
+           o mesmo objeto.
+    - APONTADORES são ligeiramente diferentes, além de ser possível
+      fazer as mesmas operações com referências descritas acima, é
+      também possível fazer:
+        1. Aritmética de ponteiros, ou seja, fazer algo como p = p + 10
+           para fazer com que p aponte para 10 posições após a posição
+           atual.
+        2. Atribuir valores diretamente a ponteiros, por exemplo, p =
+           3725, o que é claramenta muito inseguro. Linguagens como
+           C/C++ permitem isso.
+    
+    - Java e Smalltalk possuem apenas referências, o que torna o código
+      mais seguro.
+    - C++ possui tantos ponteiros (*) quanto referências (&).
+
+* Exceções
+    - Um mecanismo existente em linguagens OO para tratar casos
+      excepcionais de forma elegante.
+    - Ao contrário de C que nos força testar possíveis códigos de erro a
+      cada chamada de função. As exceções nos permitem escrever todo o 
+      código de erro e tratá-lo externamente.
+    - Objetos deste tipo possuem vários atributos, como:
+        - messageText (que descreve o erro).
+        - isResumable  (dizendo se o programa pode ser continuado ou
+          não).
+    - Para gerar uma exceção, enviamos uma das seguintes mensagens a
+      uma subclasse de Exception:
+        - signal
+        - signal: aString
+    - Para capturar exceções, precisamos colocar o trecho de código
+      que pode gerar a exceção dentro de um bloco e enviar ao bloco 
+      uma das seguintes mensagens:
+        - [10 / x]
+            on: ZeroDivide
+            do: [ :exception | Transcript show: 'Tentativa de divisão
+                               por 0' ]
+        - O parâmetro passado ao bloco pode ser uma lista de exceções.
